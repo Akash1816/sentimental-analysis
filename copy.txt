@@ -1,0 +1,88 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.preprocessing import LabelEncoder
+from wordcloud import WordCloud
+
+# Load dataset
+df = pd.read_csv(r'/Dataset-SA.csv')
+
+# Display first few rows
+df.head()
+
+# Plot sentiment distribution
+sentiment_count = df['Sentiment'].value_counts()
+plt.plot(sentiment_count.index, sentiment_count.values)
+plt.xlabel("Sentiment")
+plt.ylabel("Count")
+plt.title("EDA")
+plt.show()
+
+
+
+
+text = ' '.join(df['Summary'].dropna())
+wc = WordCloud(width=640, height=480, background_color='black').generate(text)
+
+plt.figure(figsize=(10, 5))
+plt.imshow(wc, interpolation='bilinear')
+plt.axis("off")  # Hide axes
+plt.show()
+
+# Train-test split
+x = df['Summary'].fillna("")  # Handle NaN values in text
+y = df['Sentiment'].fillna("")
+
+
+
+
+
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, random_state=42)
+
+# Convert text data into numerical feature vectors
+vec = CountVectorizer()
+X_train = vec.fit_transform(x_train)
+X_test = vec.transform(x_test)  # Fixed issue here
+
+# Encode target labels
+enc = LabelEncoder()
+Y_train = enc.fit_transform(y_train)
+Y_test = enc.transform(y_test)
+
+
+
+
+
+
+rfc = RandomForestClassifier()
+rfc.fit(X_train,y_train)
+
+# Make predictions (Fixed: use X_test instead of x_test)
+predictions = rfc.predict(X_test)
+
+# Display sample predictions
+print("Sample Predictions:", predictions[:10])
+print(rfc.predict(vec.transform(["i hate the product"])))
+
+
+
+ $env:Path += ";C:\Users\Akash\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts"
+
+
+
+'''def show_about():
+    
+    st.header("***About Me***")
+
+    about="""Sentiment analysis of product reviews is crucial for understanding customer opinions and improving business strategies. This project utilizes a Random Forest classifier to predict the sentiment of textual reviews. TF-IDF, CountVectorizer, and word embeddings are employed for feature extraction to capture meaningful text representations. The model is trained on labeled review data and evaluated using accuracy, precision, recall, and F1-score. By leveraging ensemble learning, the Random Forest classifier enhances prediction robustness, making it a reliable approach for sentiment classification.
+    """
+    for word in about.split(" "):
+        yield word + " "
+        time.sleep(0.05)
+    st.divider()
+        
+st.write_stream(show_about())'''
