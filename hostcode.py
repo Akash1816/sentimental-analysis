@@ -2,8 +2,6 @@ import streamlit as st
 import time
 
 st.title("***SENTIMENTAL ANALYSIS ON PRODUCT REVIEWS***")
-st.image(r"archive\DALL·E 2025-03-18 19.00.24 - A modern and futuristic logo for a team named 'HAK'. The design should feature a neon color scheme with vibrant blue, purple, and pink neon glow effec.webp", width=100)
-
 st.divider()
 st.header("***About Me***")
 st.write("""Sentiment analysis of product reviews is crucial for understanding customer opinions and improving business strategies. This project utilizes a Random Forest classifier to predict the sentiment of textual reviews. TF-IDF, CountVectorizer, and word embeddings are employed for feature extraction to capture meaningful text representations. The model is trained on labeled review data and evaluated using accuracy, precision, recall, and F1-score. By leveraging ensemble learning, the Random Forest classifier enhances prediction robustness, making it a reliable approach for sentiment classification.
