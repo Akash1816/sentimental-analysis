@@ -44,6 +44,4 @@ prediction=rfc.predict(X_test)
 #print(prediction[:10])
 #print(rfc.predict(vec.transform(["its neither good nor bad"])))
 
-import module
-
     

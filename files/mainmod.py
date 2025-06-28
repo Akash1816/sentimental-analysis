@@ -4,7 +4,7 @@ import sklearn
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.ensemble import RandomForestClassifier
-df=pandas.read_csv(r'D:\project\mini project\archive\Dataset-SA.csv')
+df=pandas.read_csv(r'archive\Dataset-SA.csv')
 df.head()                           
 
 # %%

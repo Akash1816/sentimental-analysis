@@ -16,7 +16,7 @@ st.video(r'D:\project\mini project\archive\Akash_project_1.mp4')
 st.divider()
 
 with st.spinner("Getting the model ready..",show_time=True):
-    import mainmod as md
+    import files.mainmod as md
     st.success("The model is now trained")       
 st.divider()
 

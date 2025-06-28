@@ -2,7 +2,7 @@ import streamlit as st
 import time
 
 st.title("***SENTIMENTAL ANALYSIS ON PRODUCT REVIEWS***")
-st.logo(r"D:\project\mini project\archive\DALL·E 2025-03-18 19.00.24 - A modern and futuristic logo for a team named 'HAK'. The design should feature a neon color scheme with vibrant blue, purple, and pink neon glow effec.webp")
+st.image(r"archive\DALL·E 2025-03-18 19.00.24 - A modern and futuristic logo for a team named 'HAK'. The design should feature a neon color scheme with vibrant blue, purple, and pink neon glow effec.webp", width=100)
 
 st.divider()
 st.header("***About Me***")
@@ -12,11 +12,11 @@ st.divider()
 
 st.subheader("***Insights from the product***")
 st.caption("**Hey there, Initially loading of model would take atleast a minute, meanwhile go through the video below and get to know about our product**")
-st.video(r'D:\project\mini project\archive\Akash_project_1.mp4')
+st.video(r'archive\Akash_project_1.mp4')
 st.divider()
 
 with st.spinner("Getting the model ready..",show_time=True):
-    import mainmod as md
+    import files.mainmod as md
     st.success("The model is now trained")       
 st.divider()
 
